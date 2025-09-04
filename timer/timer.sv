@@ -2,10 +2,10 @@ module timer(
     input logic clk,
     input logic rst,
     input logic enable, // Start counting when enable is high
-    input logic [5:0] reload, // Value to load into the timer
+    input logic [31:0] reload, // Value to load into the timer
     output logic time_pass // Goes high when timer reaches zero
 );
-    logic [5:0] counter;
+    logic [31:0] counter;
     
     always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
@@ -25,4 +25,5 @@ module timer(
         end
     end
   
+
 endmodule
