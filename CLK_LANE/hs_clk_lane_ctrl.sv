@@ -141,40 +141,9 @@ always @(*) begin
         end
     endcase
 end
-
-
-
-
+//clock generation
 always_comb begin
         hs_clk = (hs_clk_enable ) ? clk : 1'b0;
 end
-
-
-
-
-
-
-
-//assign hs_clk = (hs_clk_enable ) ? clk : 1'b0;
-/*
-logic no_glitch_reg;
-always @(posedge clk or posedge rst) begin
-    if (rst) begin
-        no_glitch_reg <= 1'b0;
-    end else begin
-        no_glitch_reg <= (current_state == PRE_HS_STOP && time_pass);
-    end
-end
-
-assign hs_clk = (hs_clk_enable && !no_glitch_reg) ? clk : 1'b0;
-*/
-//Clock Generator:
-//logic no_glitch;
-//assign no_glitch = (current_state == PRE_HS_STOP && time_pass)? 1'b1 : 1'b0; 
-//assign hs_clk = (hs_clk_enable ^ no_glitch ) ? clk : 1'b0;
-
-    
-
-
 
 endmodule
